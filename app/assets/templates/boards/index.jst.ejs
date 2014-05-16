@@ -1,1 +1,8 @@
 <h1> Welcome to the Board Index Motha Fuckas </h1>
+<ul>
+  <% boards.each(function(board){ %>
+    <li>
+      <%= board.get('title') %>
+    </li>
+  <% }) %>
+</ul>
