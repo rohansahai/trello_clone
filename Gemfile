@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem "serialize_json-rails"
 
 group :doc do
   gem 'sdoc', require: false
@@ -24,6 +25,7 @@ gem 'jquery-ui-rails'
 gem 'backbone-on-rails'
 gem 'rake', '10.1.1'
 gem 'bcrypt'
+gem 'ejs'
 
 group :development, :test do
   gem 'rspec-rails'
