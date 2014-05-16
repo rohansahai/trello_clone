@@ -9,6 +9,12 @@ window.Trellino.Views.BoardShow = Backbone.View.extend({
     this.$el.html(this.template({
       board: this.model
     }));
+
+    var addMemberView = new Trellino.Views.BoardAddMember({
+      model: this.model
+    })
+    this.$el.append(addMemberView.render().$el);
+    
     return this;
   }
 })
