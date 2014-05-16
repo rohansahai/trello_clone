@@ -16,7 +16,7 @@ window.Trellino.Views.BoardAddMember = Backbone.View.extend({
     var userEmail = $('#new-member-email').val();
     this.model.save({newMemberEmail: userEmail},{
       success: function () {
-        alert('that worked somehow');
+        alert('Your Member has added');
       }
     })
   },

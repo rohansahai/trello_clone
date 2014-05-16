@@ -3,6 +3,10 @@ window.Trellino.Views.BoardShow = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render)
   },
 
+  events: {
+    "click #delete-board": "deleteBoard"
+  },
+
   template: JST['boards/show'],
 
   render: function () {
@@ -14,7 +18,16 @@ window.Trellino.Views.BoardShow = Backbone.View.extend({
       model: this.model
     })
     this.$el.append(addMemberView.render().$el);
-    
+
     return this;
+  },
+
+  deleteBoard: function (event) {
+    event.preventDefault();
+    this.model.destroy({
+      success: function () {
+        Trellino.router.navigate("", { trigger: true});
+      }
+    });
   }
 })
