@@ -3,5 +3,7 @@ window.Trellino.Models.List = Backbone.Model.extend({
     this.board = options.board;
   },
 
-  urlRoot: 'api/boards/' + this.board.get('id') + '/lists'
+  urlRoot: function () {
+    return 'api/boards/' + this.board.get('id') + '/lists'
+  },
 })

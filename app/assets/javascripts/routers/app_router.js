@@ -2,21 +2,20 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
   routes: {
     "": "boardIndex",
     "boards/new": "boardNew",
-    "lists/new",
     "boards/:id": "boardShow",
+    "boards/:id/new_list": "listNew"
   },
 
   initialize: function (options) {
     this.$context = options.context;
-    this.boardsCollection = new Trellino.Collections.Boards();
   },
 
   boardIndex: function () {
     var that = this;
-    this.boardsCollection.fetch({
+    Trellino.Boards.fetch({
       success: function () {
         var view = new Trellino.Views.BoardIndex({
-          collection: that.boardsCollection
+          collection: Trellino.Boards
         });
         that.$context.html(view.render().$el);
       }
@@ -25,17 +24,30 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
 
   boardNew: function () {
     var view = new Trellino.Views.BoardNew({
-      collection: this.boardsCollection
+      collection: Trellino.Boards
     });
     this.$context.html(view.render().$el);
   },
 
   boardShow: function (id) {
-    var model = this.boardsCollection.getOrFetch(id);
+    var model = Trellino.Boards.getOrFetch(id);
     var view = new Trellino.Views.BoardShow({
       model: model
     });
 
+    this.$context.html(view.render().$el);
+  },
+
+  listNew: function (id) {
+    var model = Trellino.Boards.getOrFetch(id);
+    //async issues?
+    var listCollection = new Trellino.Collections.BoardLists([],{
+      board: model
+    });
+    var view = new Trellino.Views.ListNew({
+      model: model,
+      collection: listCollection
+    });
     this.$context.html(view.render().$el);
   }
 })
