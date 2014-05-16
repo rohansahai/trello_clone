@@ -4,13 +4,18 @@
 <br>
 
 <p> Lists </p>
-<% if (board.get('lists')){ %>
   <ul>
-    <% board.get('lists').forEach(function(list){ %>
-      <li> <%= list['title'] %> </li>
+    <% board.lists().each(function(list){ %>
+      <li> <%= list.escape('title') %> </li>
+        <ul>
+          <% list.cards().each(function(card){ %>
+            <li> <%= card.escape('title') %> </li>
+          <% }) %>
+        </ul>
     <% }) %>
   </ul>
-<% } %>
+
+
 <br>
 <a href= <%= "#/boards/" + board.get('id') + "/new_list" %> > Create New List </a>
 <br>
