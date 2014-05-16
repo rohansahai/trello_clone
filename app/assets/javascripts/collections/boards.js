@@ -7,7 +7,7 @@ window.Trellino.Collections.Boards = Backbone.Collection.extend({
     if (model = this.get(id)) {
       model.fetch();
     } else {
-      model = new NewReader.Models.FeedModel({id: id});
+      model = new Trellino.Models.Board({id: id});
       model.fetch({
         success: function () {
           boards.add(model)
