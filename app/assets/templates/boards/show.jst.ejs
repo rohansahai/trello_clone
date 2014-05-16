@@ -4,16 +4,22 @@
 <br>
 
 <p> Lists </p>
+
+<div class='row'>
   <ul>
     <% board.lists().each(function(list){ %>
-      <li> <%= list.escape('title') %> </li>
-        <ul>
-          <% list.cards().each(function(card){ %>
-            <li> <%= card.escape('title') %> </li>
-          <% }) %>
-        </ul>
+      <div class="col-xs-3">
+        <li> <%= list.escape('title') %>
+          <ul>
+            <% list.cards().each(function(card){ %>
+              <li> <%= card.escape('title') %> </li>
+            <% }) %>
+          </ul>
+        </li>
+      </div>
     <% }) %>
   </ul>
+</div>
 
 
 <br>
