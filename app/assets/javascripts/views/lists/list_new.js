@@ -1,8 +1,8 @@
-window.Trellino.Views.BoardNew = Backbone.View.extend({
-  template: JST['boards/new'],
+window.Trellino.Views.ListNew = Backbone.View.extend({
+  template: JST['lists/new'],
 
   events: {
-    "submit": "createNewBoard"
+    "submit": "createNewList"
   },
 
   render: function () {
@@ -10,7 +10,7 @@ window.Trellino.Views.BoardNew = Backbone.View.extend({
     return this;
   },
 
-  createNewBoard: function (event) {
+  createNewList: function (event) {
     event.preventDefault();
     var formData = $(event.target).serializeJSON();
     var newModel = this.collection.create(formData, {
