@@ -12,9 +12,12 @@ window.Trellino.Views.BoardNew = Backbone.View.extend({
 
   createNewForm: function (event) {
     event.preventDefault();
-    debugger
     var formData = $(event.target).serializeJSON();
-    this.collection.create(formData);
-    Trellino.router.navigate("", {trigger: true});
+    var newModel = this.collection.create(formData, {
+      success: function () {
+        Trellino.router.navigate("boards/" + newModel.get('id'), {trigger: true});
+      }
+    });
+
   },
 })
