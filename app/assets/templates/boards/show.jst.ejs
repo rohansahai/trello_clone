@@ -1,1 +1,15 @@
-<h1> Welcome, To Show Page, Funky Child </h1>
+<h2> This is your Boards Nesting Place, Funky Child </h2>
+<br>
+<h4> Board Title: <%= board.escape('title') %> </h4>
+<br>
+
+<p> Lists </p>
+<% if (board.get('lists')){ %>
+  <ul>
+    <% board.get('lists').forEach(function(list){ %>
+      <li> <%= list['title'] %> </li>
+    <% }) %>
+  </ul>
+<% } %>
+<br>
+<a href="/">Back to Boards</a>

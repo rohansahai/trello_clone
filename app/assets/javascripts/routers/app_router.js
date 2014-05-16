@@ -32,7 +32,7 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
   boardShow: function (id) {
     var model = this.boardsCollection.getOrFetch(id);
     var view = new Trellino.Views.BoardShow({
-      board: model
+      model: model
     });
 
     this.$context.html(view.render().$el);
