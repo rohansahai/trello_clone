@@ -1,21 +1,15 @@
-<!-- <div class="col-xs-3 board-list">
-  <li> <%= list.escape('title') %>
-    <ul>
-      <% list.cards().each(function(card){ %>
-        <li class='card' data-id='<%= card.id %>'>
-          <%= card.escape('title') %>
-        </li>
-      <% }) %>
-    </ul>
-  </li>
-</div>
-
-<h2> subviews </h2> -->
-
 <div class="col-xs-3 board-list">
   <li> <%= list.escape('title') %>
     <ul class="cards">
 
     </ul>
+    <div>
+      <form>
+        <input type="hidden" name="card[list_id]" value="<%= list.get('id') %>">
+        <input type="hidden" name="card[rank]" value="<%= list.cards().length %>">
+        <input type="text" name="card[title]">
+        <button id="new-card">Add New Card</button>
+    </form>
+    </div>
   </li>
 </div>

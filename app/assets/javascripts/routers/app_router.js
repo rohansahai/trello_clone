@@ -40,12 +40,11 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
   listNew: function (id) {
     var model = Trellino.Boards.getOrFetch(id);
     //async issues?
-    var listCollection = new Trellino.Collections.BoardLists([],{
-      board: model
-    });
+    // var listCollection = new Trellino.Collections.BoardLists([],{
+    //   board: model
+    // });
     var view = new Trellino.Views.ListNew({
       model: model,
-      collection: listCollection
     });
     this._swapView(view);
   },

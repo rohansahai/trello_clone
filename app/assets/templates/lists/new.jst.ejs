@@ -2,8 +2,7 @@
   <label>Title</label>
   <input type="text" name="list[title]">
 
-  <label>Rank</label>
-  <input type="text" name="list[rank]">
+  <input type="hidden" name="list[rank]" value="<%= board.lists().length %>">
 
   <input type="hidden" name="list[board_id]" value="<%= board.get('id') %>">
 

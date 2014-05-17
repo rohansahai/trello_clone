@@ -1,6 +1,10 @@
 window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
   template: JST['lists/show'],
 
+  events: {
+    "submit": "createNewCard"
+  },
+
   initialize: function () {
     this.listenTo(this.model.cards(), "add", this.addCard);
     var that = this;
@@ -19,14 +23,24 @@ window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
   },
 
   addCard: function (card) {
-    var cardCollection = new Trellino.Collections.ListCards([],{
-      model: card
-    });
-
     var cardShow = new Trellino.Views.CardShow({
       model: card,
     });
 
     this.addSubview(".cards", cardShow);
+  },
+
+  createNewCard: function(event) {
+    event.preventDefault();
+    var that = this;
+    var formData = $(event.target).serializeJSON()['card'];
+    var card = new Trellino.Models.Card(formData);
+
+    card.list = this.model;
+    card.save({}, {
+      success: function () {
+        that.model.cards().add(card);
+      }
+    })
   }
 })

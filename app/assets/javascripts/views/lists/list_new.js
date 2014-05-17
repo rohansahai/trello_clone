@@ -21,7 +21,7 @@ window.Trellino.Views.ListNew = Backbone.View.extend({
     list.board = Trellino.Boards.getOrFetch(this.model.get('id'))
     list.save({}, {
       success: function () {
-        that.collection.add(list);
+        that.model.lists().add(list);
         Trellino.router.navigate("boards/" + that.model.get('id'), {trigger: true});
       }
     })
