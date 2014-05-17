@@ -5,27 +5,9 @@
 
 <p> Lists </p>
 
-<div class='row'>
-  <ul>
-    <% board.lists().each(function(list){ %>
-      <div class="col-xs-3 board-list">
-        <li> <%= list.escape('title') %>
-          <ul>
-            <% list.cards().each(function(card){ %>
-              <li class='card' data-id='<%= card.id %>'>
-                <%= card.escape('title') %>
-              </li>
-            <% }) %>
-          </ul>
-        </li>
-      </div>
-    <% }) %>
-  </ul>
-</div>
-
 <h2> Subviews </h2>
 <div class='row'>
-  <ul class='links'>
+  <ul class='lists'>
   </ul>
 </div>
 

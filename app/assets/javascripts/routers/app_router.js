@@ -34,7 +34,6 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
     var view = new Trellino.Views.BoardShow({
       model: model
     });
-
     this._swapView(view);
   },
 

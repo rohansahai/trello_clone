@@ -35,7 +35,6 @@ Backbone.CompositeView = Backbone.View.extend({
     //
     // All that is necessary is "attaching" the subview `$el`s to the
     // relevant points in the parent CompositeView.
-
     var view = this;
     _(this.subviews()).each(function (subviews, selector) {
       view.$(selector).empty();
@@ -43,6 +42,7 @@ Backbone.CompositeView = Backbone.View.extend({
         view.attachSubview(selector, subview);
       });
     });
+
   },
 
   remove: function () {
