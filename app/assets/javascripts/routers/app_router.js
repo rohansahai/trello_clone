@@ -17,7 +17,7 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
         var view = new Trellino.Views.BoardIndex({
           collection: Trellino.Boards
         });
-        that.$context.html(view.render().$el);
+        that._swapView(view);
       }
     })
   },
@@ -26,7 +26,7 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
     var view = new Trellino.Views.BoardNew({
       collection: Trellino.Boards
     });
-    this.$context.html(view.render().$el);
+    this._swapView(view);
   },
 
   boardShow: function (id) {
@@ -35,7 +35,7 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
       model: model
     });
 
-    this.$context.html(view.render().$el);
+    this._swapView(view);
   },
 
   listNew: function (id) {
@@ -48,6 +48,16 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
       model: model,
       collection: listCollection
     });
-    this.$context.html(view.render().$el);
+    this._swapView(view);
+  },
+
+  _swapView: function (newView) {
+    if (this.currentView) {
+      this.currentView.remove();
+    }
+
+    this.$context.html(newView.render().$el);
+
+    this.currentView = newView;
   }
 })
