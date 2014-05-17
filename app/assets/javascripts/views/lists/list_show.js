@@ -1,11 +1,11 @@
 window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
   template: JST['lists/show'],
 
-  intialize: function () {
-    this.listenTo(this.model.comments(), "add", this.addComment);
+  initialize: function () {
+    this.listenTo(this.model.cards(), "add", this.addCard);
     var that = this;
-    this.model.comments().each(function(list){
-      that.addComment(comment)
+    this.model.cards().each(function(card){
+      that.addCard(card)
     });
   },
 
@@ -18,16 +18,15 @@ window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
     return this;
   },
 
-  addComment: function (list) {
-    var commentCollection = new Trellino.Collections.ListComments([],{
-      board: this.model
-    });
-    //THIS IS ALL FUCKED
-
-    var listShow = new Trellino.Views.ListShow({
-      model: list,
+  addCard: function (card) {
+    var cardCollection = new Trellino.Collections.ListCards([],{
+      model: card
     });
 
-    this.addSubview(".lists", listShow);
+    var cardShow = new Trellino.Views.CardShow({
+      model: card,
+    });
+
+    this.addSubview(".cards", cardShow);
   }
 })
