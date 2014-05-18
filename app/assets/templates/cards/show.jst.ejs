@@ -1,3 +1,11 @@
-<li class='card' data-id='<%= card.id %>'>
-  <%= card.escape('title') %>
-</li>
+<div id = "card-div">
+
+  <li class='card show' data-id='<%= card.id %>'>
+    <%= card.escape('title') %>
+  </li>
+
+  <li class='delete hide' data-id='<%= card.id %>'>
+    Delete
+  </li>
+
+</div>

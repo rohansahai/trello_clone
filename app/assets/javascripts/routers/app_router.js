@@ -8,18 +8,19 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
 
   initialize: function (options) {
     this.$context = options.context;
+    Trellino.Boards.fetch();
   },
 
   boardIndex: function () {
     var that = this;
-    Trellino.Boards.fetch({
-      success: function () {
+    // Trellino.Boards.fetch({
+    //   success: function () {
         var view = new Trellino.Views.BoardIndex({
           collection: Trellino.Boards
         });
         that._swapView(view);
-      }
-    })
+    //   }
+    // })
   },
 
   boardNew: function () {

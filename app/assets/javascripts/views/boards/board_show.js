@@ -11,7 +11,9 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click #delete-board": "deleteBoard"
+    "click #delete-board": "deleteBoard",
+    "mouseover .card": "toggleDelete",
+    "mouseleave .delete": "toggleDelete"
   },
 
   template: JST['boards/show'],
@@ -44,6 +46,10 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
     });
 
     this.addSubview(".lists", listShow);
-  }
+  },
+
+  toggleDelete: function(event) {
+    $(event.target).parent().children().toggleClass("hide show");
+  },
 
 })
