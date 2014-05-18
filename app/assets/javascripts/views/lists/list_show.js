@@ -59,7 +59,6 @@ window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
     var that = this;
     this.model.destroy({
       success: function () {
-        console.log("wtf");
         that.render();
       }
     })
