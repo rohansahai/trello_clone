@@ -55,7 +55,8 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
         return subview.model === list;
       }
     );
-
+    list.board = this.model;
+    this.model.lists().remove(list);
     this.removeSubview(".list", subview);
   },
 

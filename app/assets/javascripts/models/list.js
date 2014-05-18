@@ -17,4 +17,11 @@ window.Trellino.Models.List = Backbone.Model.extend({
 
     return payload;
   },
+  url: function () {
+    if (this.id) {
+      return "/api/lists/" + this.id
+    } else {
+      return "/api/boards/" + this.board.id + "/lists"
+    }
+  }
 })
