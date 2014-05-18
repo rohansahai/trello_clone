@@ -6,4 +6,18 @@ window.Trellino.Models.Card = Backbone.Model.extend({
   urlRoot: function () {
     return 'api/lists/' + this.list.get('id') + '/cards'
   },
+
+  // methodUrl: {
+  //   delete: function () {
+  //     return 'api/cards/' + this.get('id')
+  //   }
+  // },
+  //
+  // sync: function(method, model, options) {
+  //   if (model.methodUrl && model.methodUrl[method.toLowerCase()]) {
+  //     options = options || {};
+  //     options.url = model.methodUrl[method.toLowerCase()];
+  //   }
+  //   Backbone.sync(method, model, options);
+  // }
 })

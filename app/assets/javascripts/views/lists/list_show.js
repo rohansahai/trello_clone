@@ -36,7 +36,7 @@ window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
     var that = this;
     var formData = $(event.target).serializeJSON()['card'];
     var card = new Trellino.Models.Card(formData);
-
+    //this.model.cards().create(card);
     card.list = this.model;
     card.save({}, {
       success: function () {

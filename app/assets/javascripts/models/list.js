@@ -3,10 +3,6 @@ window.Trellino.Models.List = Backbone.Model.extend({
     this.board = options.board;
   },
 
-  urlRoot: function () {
-    return 'api/boards/' + this.board.get('id') + '/lists'
-  },
-
   cards: function () {
     this._cards = this._cards ||
       new Trellino.Collections.ListCards([], { list: this });

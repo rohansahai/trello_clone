@@ -18,13 +18,11 @@ window.Trellino.Views.ListNew = Backbone.View.extend({
     var formData = $(event.target).serializeJSON()['list'];
     var list = new Trellino.Models.List(formData);
 
-    list.board = Trellino.Boards.getOrFetch(this.model.get('id'))
-    list.save({}, {
-      success: function () {
-        that.model.lists().add(list);
+    var board = Trellino.Boards.getOrFetch(this.model.get('id'));
+    board.lists().create(list, {
+      success: function() {
         Trellino.router.navigate("boards/" + that.model.get('id'), {trigger: true});
       }
     })
-
   },
 })
