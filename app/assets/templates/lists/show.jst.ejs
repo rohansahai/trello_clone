@@ -1,5 +1,6 @@
 <div class="col-xs-3 board-list">
-  <li> <%= list.escape('title') %>
+
+    <h3> <%= list.escape('title') %> </h3>
     <ul class="cards">
 
     </ul>
@@ -9,7 +10,25 @@
         <input type="hidden" name="card[rank]" value="<%= list.cards().length %>">
         <input type="text" name="card[title]">
         <button id="new-card">Add New Card</button>
-    </form>
+      </form>
     </div>
-  </li>
+    <button id="delete-list">Delete List</button>
 </div>
+
+<script>
+  //$(".board-list:even").css("background-color","blue");
+  //$(".board-list:odd").css("background-color","red");
+  var lists = document.getElementsByClassName("board-list");
+    for(var i=0; i<lists.length; i++) {
+      if (i % 4 === 0){
+        lists[i].style["background-color"] = "#3CB5B5";
+      } else if (i % 4 === 0){
+        lists[i].style["background-color"] = "#FCD920";
+      } else if (i % 2 === 0){
+        lists[i].style["background-color"] = "#E53B51";
+      } else {
+        lists[i].style["background-color"] = "#EC6C20";
+      }
+
+    }
+</script>

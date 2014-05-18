@@ -9,7 +9,6 @@ window.Trellino.Views.CardShow = Backbone.View.extend({
 
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.collection, "remove", this.render);
   },
 
   render: function () {
@@ -27,20 +26,11 @@ window.Trellino.Views.CardShow = Backbone.View.extend({
   deleteCard: function(event) {
     var that = this;
 
-    $.ajax({
-      method: 'DELETE',
-      url: '/api/cards/' + this.model.get('id'),
-      success: function(){
-        that.collection.remove(that.model);
-        alert('great');
+    this.model.destroy({
+      success: function () {
+        //that.model.lists().remove(that)
+        that.render();
       }
-    });
-
-    // this.model.destroy({
-    //   success: function () {
-    //     //that.model.lists().remove(that)
-    //     that.render();
-    //   }
-    // })
+    })
   }
 })

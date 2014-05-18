@@ -16,5 +16,16 @@
 @import "bootstrap";
 
 .board-list{
-  
+  $min-height: 240;
+  min-height:240px;
+  border:solid 2px;
+  //background-color: #6CAF90;
+  form{
+    top: 180px; // want to use sass to calculate this!
+    position: absolute;
+  }
+}
+
+.card{
+  border:solid 2px;
 }
