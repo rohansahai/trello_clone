@@ -3,21 +3,7 @@ window.Trellino.Models.Card = Backbone.Model.extend({
     this.list = options.list;
   },
 
-  urlRoot: function () {
-    return 'api/lists/' + this.list.get('id') + '/cards'
-  },
-
-  // methodUrl: {
-  //   delete: function () {
-  //     return 'api/cards/' + this.get('id')
-  //   }
+  // urlRoot: function () {
+  //   return 'api/cards'
   // },
-  //
-  // sync: function(method, model, options) {
-  //   if (model.methodUrl && model.methodUrl[method.toLowerCase()]) {
-  //     options = options || {};
-  //     options.url = model.methodUrl[method.toLowerCase()];
-  //   }
-  //   Backbone.sync(method, model, options);
-  // }
 })

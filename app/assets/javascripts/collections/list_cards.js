@@ -7,6 +7,6 @@ window.Trellino.Collections.ListCards = Backbone.Collection.extend({
   model: Trellino.Models.Card,
 
   url: function () {
-    return this.list.url() + "/cards";
+    return "api/lists/" + this.list.get('id') + "/cards";
   }
 })
