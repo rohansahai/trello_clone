@@ -74,24 +74,23 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
         var currentList = that.model.lists().get(listId);
         var newCardId;
 
-        currentList.cards().each(function(card){
-          for (var i = 0; i < dataNew.length; i++){
-            console.log(card.id);
-            console.log(dataNew[i]);
-            if (card.id === dataNew[i]){
-              console.log("shouldn't be new one" + card.id)
-              return true
-            } else {
-              newCardId = dataNew[i];
-              console.log("should be new one" + newCardId)
-              return false
+        if (currentList.cards().length === 0){ newCardId = dataNew[0] };
+
+        for (var i = 0; i < currentList.cards().length; i++){
+          for (var j = 0; j < dataNew.length; j++) {
+            if (currentList.cards().models[i].id.toString() === dataNew[j]){
+              dataNew.splice(j,1);
             }
-          };
-        })
-        var newCard = that.prevList.cards().get(newCardId); //new card from previous list
+          }
+        }
+
+
+        var newCard = that.prevList.cards().get(dataNew[0]); //new card from previous list
         that.prevList.cards().remove(newCard);
         newCard.set('list_id', currentList.id);
         currentList.cards().add(newCard);
+        newCard.save();
+
       }
     });
 
