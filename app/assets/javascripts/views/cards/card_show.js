@@ -1,12 +1,13 @@
 window.Trellino.Views.CardShow = Backbone.View.extend({
   template: JST['cards/show'],
-  className: "card-div",
+  className: "card-li",
   tagName: "li",
 
   events: {
-    //"mouseover .card": "toggleDelete",
-    //"mouseleave .delete": "toggleDelete",
-    "click .delete": "deleteCard"
+    "click .card-li" : "toggleDelete",
+    "mouseover .card-li": "toggleDelete",
+    "mouseleave .card-li": "toggleDelete",
+    //"click .delete": "deleteCard"
   },
 
   initialize: function (options) {
@@ -23,7 +24,8 @@ window.Trellino.Views.CardShow = Backbone.View.extend({
   },
 
   toggleDelete: function(event) {
-    $(event.target).parent().children().toggleClass("hide show");
+    console.log(event);
+    $(".delete").toggleClass("hide show");
   },
 
   deleteCard: function(event) {

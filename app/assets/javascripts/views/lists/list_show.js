@@ -45,7 +45,8 @@ window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
        }
      );
 
-     this.removeSubview(".card", subview);
+     this.removeSubview(".cards", subview);
+     debugger
    },
 
   createNewCard: function(event) {

@@ -13,7 +13,7 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click #delete-board": "deleteBoard",
+    "click #delete-board": "deleteBoard"
   },
 
   template: JST['boards/show'],
