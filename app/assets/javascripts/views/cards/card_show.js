@@ -1,9 +1,11 @@
 window.Trellino.Views.CardShow = Backbone.View.extend({
   template: JST['cards/show'],
+  className: "card-div",
+  tagName: "li",
 
   events: {
-    "mouseover .card": "toggleDelete",
-    "mouseleave .delete": "toggleDelete",
+    //"mouseover .card": "toggleDelete",
+    //"mouseleave .delete": "toggleDelete",
     "click .delete": "deleteCard"
   },
 
@@ -15,6 +17,7 @@ window.Trellino.Views.CardShow = Backbone.View.extend({
     this.$el.html(this.template({
       card: this.model
     }));
+    this.$el.attr('id', 'card-' + this.model.id);
 
     return this;
   },

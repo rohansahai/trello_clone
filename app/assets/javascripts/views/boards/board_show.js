@@ -46,6 +46,23 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
       }
     });
 
+    this.$el.find('.cards').sortable({
+      update: function (event, ui) {
+          var data = $(this).sortable('serialize', { key: "rank"});
+          var dataNew = data.split("&rank=");
+          var firstItem = (dataNew.shift()).split('rank=')[1];
+          dataNew.unshift(firstItem);
+          var listId = $(event.target).attr('data-list-id')
+          var currentList = that.model.lists().get(listId);
+          debugger
+          currentList.cards().each(function(card){
+            var newRank = dataNew.indexOf(card.id.toString());
+            card.set('rank', newRank + 1);
+            card.save();
+          });
+      }
+    });
+
 
     return this;
   },
