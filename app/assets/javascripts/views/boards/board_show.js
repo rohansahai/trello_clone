@@ -47,19 +47,51 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
     });
 
     this.$el.find('.cards').sortable({
+      connectWith: '.cards',
       update: function (event, ui) {
-          var data = $(this).sortable('serialize', { key: "rank"});
-          var dataNew = data.split("&rank=");
-          var firstItem = (dataNew.shift()).split('rank=')[1];
-          dataNew.unshift(firstItem);
-          var listId = $(event.target).attr('data-list-id')
-          var currentList = that.model.lists().get(listId);
-          debugger
-          currentList.cards().each(function(card){
-            var newRank = dataNew.indexOf(card.id.toString());
-            card.set('rank', newRank + 1);
-            card.save();
-          });
+        var data = $(this).sortable('serialize', { key: "rank"});
+        var dataNew = data.split("&rank=");
+        var firstItem = (dataNew.shift()).split('rank=')[1];
+        dataNew.unshift(firstItem);
+
+        var listId = $(event.target).attr('data-list-id');
+        var currentList = that.model.lists().get(listId);
+        that.prevList = currentList;
+        if (dataNew.length === 1){ return true } //if we move a card from one list to another we don't want to go through this
+        currentList.cards().each(function(card){
+          var newRank = dataNew.indexOf(card.id.toString());
+          card.set('rank', newRank + 1);
+          card.save();
+        });
+      },
+
+      receive: function (event, ui){
+        var data = $(this).sortable('serialize', { key: "rank"});
+        var dataNew = data.split("&rank=");
+        var firstItem = (dataNew.shift()).split('rank=')[1];
+        dataNew.unshift(firstItem);
+        var listId = $(event.target).attr('data-list-id');
+        var currentList = that.model.lists().get(listId);
+        var newCardId;
+
+        currentList.cards().each(function(card){
+          for (var i = 0; i < dataNew.length; i++){
+            console.log(card.id);
+            console.log(dataNew[i]);
+            if (card.id === dataNew[i]){
+              console.log("shouldn't be new one" + card.id)
+              return true
+            } else {
+              newCardId = dataNew[i];
+              console.log("should be new one" + newCardId)
+              return false
+            }
+          };
+        })
+        var newCard = that.prevList.cards().get(newCardId); //new card from previous list
+        that.prevList.cards().remove(newCard);
+        newCard.set('list_id', currentList.id);
+        currentList.cards().add(newCard);
       }
     });
 
