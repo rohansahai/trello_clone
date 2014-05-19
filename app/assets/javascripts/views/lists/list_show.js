@@ -52,6 +52,7 @@ window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
     var card = new Trellino.Models.Card(formData);
     card.list = this.model;
     this.model.cards().create(card);
+    this.$('input[name=card\\[title\\]]').val("");
   },
 
   deleteList: function(event) {
