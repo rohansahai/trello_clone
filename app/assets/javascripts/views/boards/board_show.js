@@ -18,6 +18,8 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
   template: JST['boards/show'],
 
   render: function () {
+    var that = this;
+
     this.$el.html(this.template({
       board: this.model
     }));
@@ -31,13 +33,19 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
     $('.lists').sortable({
       axis: 'x',
       update: function (event, ui) {
-          var data = $(this).sortable('serialize', { key: "rank" });
-          debugger
+          var data = $(this).sortable('serialize', { key: "rank"});
+          var dataNew = data.split("&rank=");
+          var firstItem = (dataNew.shift()).split('rank=')[1];
+          dataNew.unshift(firstItem);
+          that.model.lists().each(function(list, idx){
+            list.set('rank', dataNew[idx]);
+            list.save();
+          });
           // POST to server using $.post or $.ajax
           // $.ajax({
           //     data: data,
           //     type: 'POST',
-          //     url: '/your/url/here'
+          //     url: '/your/url/here' /api/boards/:board_id/lists/:id
           // });
       }
     });
