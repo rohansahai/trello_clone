@@ -13,14 +13,10 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
 
   boardIndex: function () {
     var that = this;
-    // Trellino.Boards.fetch({
-    //   success: function () {
-        var view = new Trellino.Views.BoardIndex({
-          collection: Trellino.Boards
-        });
-        that._swapView(view);
-    //   }
-    // })
+    var view = new Trellino.Views.BoardIndex({
+      collection: Trellino.Boards
+    });
+    that._swapView(view);
   },
 
   boardNew: function () {
@@ -40,10 +36,6 @@ window.Trellino.Routers.AppRouter = Backbone.Router.extend({
 
   listNew: function (id) {
     var model = Trellino.Boards.getOrFetch(id);
-    //async issues?
-    // var listCollection = new Trellino.Collections.BoardLists([],{
-    //   board: model
-    // });
     var view = new Trellino.Views.ListNew({
       model: model,
     });

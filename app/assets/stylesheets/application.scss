@@ -20,21 +20,26 @@
   border:solid 2px;
   margin:10px;
   //background-color: #6CAF90;
-  form{
-    bottom: 40px; // want to use sass to calculate this!
-    position: absolute;
+  .btns{
+    position:absolute;
+    bottom: 0px;
+    width:200px;
+    text-align: center;
+    margin: 3px;
+    form{
+      margin: 3px;
+    }
   }
-}
 
-.delete-list{
-  position: absolute;
-  bottom:0px;
 }
-
-// .card{
-//   border:solid 2px;
-// }
 
 .card-div button{
+  text-align: center;
   width: 160px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+ul {
+list-style-type: none;
 }

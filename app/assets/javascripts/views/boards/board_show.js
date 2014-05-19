@@ -27,6 +27,22 @@ window.Trellino.Views.BoardShow = Backbone.CompositeView.extend({
     })
     this.$el.append(addMemberView.render().$el);
     this.attachSubviews();
+
+    $('.lists').sortable({
+      axis: 'x',
+      update: function (event, ui) {
+          var data = $(this).sortable('serialize', { key: "rank" });
+          debugger
+          // POST to server using $.post or $.ajax
+          // $.ajax({
+          //     data: data,
+          //     type: 'POST',
+          //     url: '/your/url/here'
+          // });
+      }
+    });
+
+
     return this;
   },
 

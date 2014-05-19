@@ -1,6 +1,9 @@
 window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
   template: JST['lists/show'],
-
+  className: function () {
+    return 'col-xs-3 board-list'
+  },
+  tagName: 'li',
   events: {
     "submit": "createNewCard",
     "click #delete-list": "deleteList"
