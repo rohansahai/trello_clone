@@ -4,7 +4,7 @@ window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
   tagName: 'li',
   events: {
     "submit": "createNewCard",
-    "click #delete-list": "deleteList"
+    "click .delete-list": "deleteList"
   },
 
   initialize: function () {
@@ -15,8 +15,6 @@ window.Trellino.Views.ListShow = Backbone.CompositeView.extend({
     this.model.cards().each(function(card){
       that.addCard(card)
     });
-
-    //this.$el.attr 'id', @id
   },
 
   render: function () {

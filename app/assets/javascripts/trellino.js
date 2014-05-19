@@ -12,7 +12,9 @@ window.Trellino = {
 
 Backbone.CompositeView = Backbone.View.extend({
   addSubview: function (selector, subview) {
-    this.subviews(selector).push(subview);
+    var rank = subview.model.attributes.rank;
+    this.subviews(selector).splice(rank-1, 0, subview);
+    //this.subviews(selector).push(subview);
     this.attachSubview(selector, subview.render());
   },
 

@@ -1,6 +1,4 @@
-
-
-<h3> <%= list.escape('title') %> </h3>
+<h3> <%= list.escape('title') %> - <%= list.escape('rank') %> </h3>
 <div class="cards">
 
 </div>
@@ -21,15 +19,16 @@
   //$(".board-list:odd").css("background-color","red");
   var lists = document.getElementsByClassName("board-list");
     for(var i=0; i<lists.length; i++) {
-      if (i % 4 === 0){
-        lists[i].style["background-color"] = "#3CB5B5";
-      } else if (i % 3 === 0){
-        lists[i].style["background-color"] = "#FCD920";
-      } else if (i % 2 === 0){
-        lists[i].style["background-color"] = "#E53B51";
-      } else {
-        lists[i].style["background-color"] = "#EC6C20";
-      }
-
+      // if (i % 4 === 0){
+      //   lists[i].style["background-color"] = "#3CB5B5";
+      // } else if (i % 3 === 0){
+      //   lists[i].style["background-color"] = "#FCD920";
+      // } else if (i % 2 === 0){
+      //   lists[i].style["background-color"] = "#E53B51";
+      // } else {
+      //   lists[i].style["background-color"] = "#EC6C20";
+      // }
+      //
+      lists[i].style["background-color"] = "#EC6C20";
     }
 </script>
