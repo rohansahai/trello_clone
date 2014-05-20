@@ -33,6 +33,27 @@
 
 }
 
+.card-div{
+  // this isn't flexible design, REFACTOR!
+  position: relative;
+  left: -31px;
+  width: 160px;
+  margin:10px;
+	padding:5px ;
+  border-radius: 5px;
+	-webkit-box-shadow:
+		0 1px 5px #0061aa,
+		inset 0 10px 20px #b6f9ff;
+	-moz-box-shadow:
+		0 1px 5px #0061aa,
+		inset 0 10px 20px #b6f9ff;
+	box-shadow:
+		0 1px 5px #0061aa,
+		inset 0 10px 20px #b6f9ff;
+	background: #6fb2e5;
+
+}
+
 // .card-li button{
 //   text-align: center;
 //   width: 160px;

@@ -7,10 +7,12 @@
 <button class='delete hide' data-id='<%= card.id %>'>
   Delete
 </button> -->
-<p>
-<%= card.escape('title') %> - <%= card.id %>
-</p>
+<div class="card-div">
 
-<button class='delete hide' data-id='<%= card.id %>'>
-  Delete
-</button>
+  <%= card.escape('title') %>
+
+
+  <button class='btn btn-danger delete hide' data-id='<%= card.id %>'>
+    X
+  </button>
+</div>
