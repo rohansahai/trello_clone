@@ -16,7 +16,7 @@
 @import "bootstrap";
 
 .board-list{
-  min-height:300px;
+  min-height:340px;
   border:solid 2px;
   margin:10px;
   //background-color: #6CAF90;
@@ -28,6 +28,9 @@
     margin: 3px;
     form{
       margin: 3px;
+      input{
+        margin: 3px;
+      }
     }
   }
 
@@ -35,6 +38,7 @@
 
 .card-div{
   // this isn't flexible design, REFACTOR!
+  overflow: hidden;
   position: relative;
   left: -31px;
   width: 160px;
@@ -51,7 +55,9 @@
 		0 1px 5px #0061aa,
 		inset 0 10px 20px #b6f9ff;
 	background: #6fb2e5;
-
+  button{
+    float: right;
+  }
 }
 
 // .card-li button{
