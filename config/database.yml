@@ -1,13 +1,23 @@
 development:
-  adapter: sqlite3
-  database: db/trellino_development
-  host: localhost
+  adapter: postgresql
+  encoding: utf8
+  database: project_development
   pool: 5
-  timeout: 5000
+  username: 
+  password:
 
-test:
-  adapter: sqlite3
-  database: db/trellino_test
-  host: localhost
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: project_test
   pool: 5
-  timeout: 5000
+  username: 
+  password:
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: project_production
+  pool: 5
+  username: 
+  password:
