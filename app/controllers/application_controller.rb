@@ -5,9 +5,10 @@ class ApplicationController < ActionController::Base
 
   private
   def current_user
-    session_token = session[:session_token]
-    return nil if session_token.nil?
-    @current_user ||= User.find_by_session_token(session_token)
+    @current_user = User.find(3)
+    #session_token = session[:session_token]
+    #return nil if session_token.nil?
+    #@current_user ||= User.find_by_session_token(session_token)
   end
 
   def login(user)

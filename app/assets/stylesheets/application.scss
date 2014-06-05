@@ -15,6 +15,10 @@
 
 @import "bootstrap";
 
+.navbar {
+	height: 20px;
+}
+
 .board-list{
   min-height:340px;
   border:solid 2px;
@@ -41,7 +45,7 @@
   overflow: hidden;
   position: relative;
   left: -31px;
-  width: 160px;
+  //width: 160px;
   margin:10px;
 	padding:5px ;
   border-radius: 5px;
@@ -60,12 +64,10 @@
   }
 }
 
-// .card-li button{
-//   text-align: center;
-//   width: 160px;
-//   margin: 0 auto;
-//   margin-bottom: 5px;
-// }
+.cards{
+  overflow: scroll;
+  height: 170px;
+}
 
 ul {
   min-height: 100px;
