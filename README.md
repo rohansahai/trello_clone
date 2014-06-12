@@ -8,13 +8,11 @@ The back end of this application is a simple rails API, and the front end MVC is
 
 The front end is backbone so boards, lists, and cards are each models with respective views. There are also board collections, list collections (within each board), and card collections (within each list). Each board view has many list subviews within it which has many card subviews within that! wooof!
 
-To run this clone the project and run
-    
+Check it out here --> http://pacific-refuge-3853.herokuapp.com/
+
+Or clone it and run
+
     rails s
     
 from you're terminal. 
-
-Todo 
-- Push this to heroku
-- Take away users so people don't have to sign up to see functionality
     
